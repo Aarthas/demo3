@@ -5,6 +5,7 @@ import com.example.demo3.model.Book;
 import com.example.demo3.model.BookCategory;
 import com.example.demo3.repository.BookCategoryRepository;
 import com.example.demo3.repository.BookRepository;
+import com.example.demo3.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,8 @@ public class SqlController {
     @Autowired
     private BookCategoryRepository bookCategoryRepository;
 
+    @Autowired
+    BookService bookService;
     @Autowired
     BookRepository bookRepository;
 
@@ -55,7 +58,8 @@ public class SqlController {
 
     @RequestMapping("/sql/query")
     public Object query() {
-        List<Book> all = bookRepository.findAll();
+//        List<Book> all = bookRepository.findAll();
+        List<Book> all =  bookService.findAll();
         return all;
     }
 //    @Transactional
