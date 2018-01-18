@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jdk1.8.0_152\bin\java"  -jar D:\Users\arth\IdeaProjects\untitled\demo3\build\libs\demo3-0.0.1-SNAPSHOT.jar

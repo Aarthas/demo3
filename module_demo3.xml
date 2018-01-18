@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_demo3" default="compile.module.demo3">
+  <dirname property="module.demo3.basedir" file="${ant.file.module_demo3}"/>
+  
+  <property name="module.jdk.home.demo3" value=""/>
+  <property name="module.jdk.bin.demo3" value=""/>
+  <property name="module.jdk.classpath.demo3" value=""/>
+  
+  <property name="compiler.args.demo3" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="demo3.output.dir" value="${module.demo3.basedir}/out/production/demo3"/>
+  <property name="demo3.testoutput.dir" value="${module.demo3.basedir}/out/test/demo3"/>
+  
+  <path id="demo3.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="demo3.module.production.classpath"/>
+  
+  <path id="demo3.runtime.production.module.classpath">
+    <pathelement location="${demo3.output.dir}"/>
+  </path>
+  
+  <path id="demo3.module.classpath">
+    <pathelement location="${demo3.output.dir}"/>
+  </path>
+  
+  <path id="demo3.runtime.module.classpath">
+    <pathelement location="${demo3.testoutput.dir}"/>
+    <pathelement location="${demo3.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.demo3">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.demo3">
+    <patternset refid="excluded.from.module.demo3"/>
+  </patternset>
+  
+  
+  <target name="compile.module.demo3" depends="compile.module.demo3.production,compile.module.demo3.tests" description="Compile module demo3"/>
+  
+  <target name="compile.module.demo3.production" depends="register.custom.compilers" description="Compile module demo3; production classes"/>
+  
+  <target name="compile.module.demo3.tests" depends="register.custom.compilers,compile.module.demo3.production" description="compile module demo3; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.demo3" description="cleanup module">
+    <delete dir="${demo3.output.dir}"/>
+    <delete dir="${demo3.testoutput.dir}"/>
+  </target>
+</project>
