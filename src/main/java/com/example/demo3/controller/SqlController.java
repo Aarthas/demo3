@@ -23,11 +23,12 @@ public class SqlController {
     @RequestMapping("/sql/add")
     public String index() {
         Book book_a1 = new Book();
-        book_a1.setBooknName("zxc");
+        book_a1.setBooknName("AAA");
 //        book_a1.s
         bookRepository.save(book_a1);
 
         BookCategory bookCategory = new BookCategory();
+        bookCategory.setName("renwen");
         bookCategoryRepository.save(bookCategory);
         return "add success";
     }
