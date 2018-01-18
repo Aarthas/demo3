@@ -18,7 +18,7 @@ public class ParamController {
     //http://localhost:20000/echo2/aa
     @RequestMapping("/echo2/{msg}")
     public String echo2(@PathVariable("msg") String msg) {
-        return "hello" + msg;
+        return "hello  " + msg;
     }
 
     @RequestMapping("/add")
