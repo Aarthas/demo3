@@ -58,9 +58,16 @@ public class SqlController {
 
     @RequestMapping("/sql/query")
     public Object query() {
-//        List<Book> all = bookRepository.findAll();
-        List<Book> all =  bookService.findAll();
+        List<Book> all = bookRepository.findAll();
+//        List<Book> all =  bookService.findAll();
         return all;
+    }
+
+    @RequestMapping("/sql/findByName")
+    public Object findByName(String bookname) {
+        Book one = bookRepository.findByBooknName(bookname);
+
+        return one;
     }
 //    @Transactional
 //    public void run(String... strings) throws Exception {
